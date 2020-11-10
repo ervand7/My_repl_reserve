@@ -1,0 +1,97 @@
+# # Узнать кол-во повторяющихся элементов
+# from collections import Counter
+
+# s = 'this is test string'
+# print(dict(Counter(s)))
+#_______________________________________
+
+
+# # формула для сортировки словаря по значениям
+# a = sorted(my_dict.items(), key=lambda x: x[1])
+#_______________________________________
+
+
+
+# # Магические методы сравнения
+# __eq__(self, other)
+# Определяет поведение оператора равенства, ==.
+
+# __ne__(self, other)
+# Определяет поведение оператора неравенства, !=.
+
+# __lt__(self, other)
+# Определяет поведение оператора меньше, <.
+
+# __gt__(self, other)
+# Определяет поведение оператора больше, >.
+
+# __le__(self, other)
+# Определяет поведение оператора меньше или равно, <=.
+
+# __ge__(self, other)
+# Определяет поведение оператора больше или равно, >=.
+#_______________________________________
+
+
+
+# # Поменять местами ключи и значения в словаре
+# {v:k for k, v in my_dict.items()}
+#_______________________________________
+
+
+
+# # Получить расширение у url
+# from urllib.parse import urlparse
+# from os.path import splitext, basename
+
+# picture_page = "http://distilleryimage2.instagram.com/da4ca3509a7b11e19e4a12313813ffc0_7.jpg"
+# disassembled = urlparse(picture_page)
+# filename, file_ext = splitext(basename(disassembled.path))
+# # Теперь у нас отдельно есть и filename (имя ссылки), и file_ext (расширение)
+# _______________________________________
+
+
+
+# # Разбить словарь на мелкие словари по запятым
+# # На выходе получаем список с мелкими словарями
+# # https://coderoad.ru/22878743/%D0%9A%D0%B0%D0%BA-%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE-%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D1%82%D1%8C-%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C-%D0%BD%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D0%B5%D0%B9
+# initial_dict = {'qwe': 123, 'asd': 345, 'zxc': 567}
+
+# from itertools import islice  
+# def chunks(data, size=0):
+#     it = iter(data)
+#     for i in range(0, len(data), size):
+#         yield {k: data[k] for k in islice(it, size)}
+
+# lst_of_small_dicts = []
+# for item in chunks({i: a for i, a in initial_dict.items()}, 1):
+#     lst_of_small_dicts.append(item)
+# print(lst_of_small_dicts)
+# _______________________________________
+
+
+
+# # Сместить ключ словаря в значение и переименовать изначальный ключ. 
+# А так же избежать ошибки "dictionary changed size during iteration" https://coderoad.ru/11941817/%D0%9A%D0%B0%D0%BA-%D0%B8%D0%B7%D0%B1%D0%B5%D0%B6%D0%B0%D1%82%D1%8C-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8-RuntimeError-dictionary-changed-size-during-iteration
+
+# my_dict = [{'qwe': 123}, {'asd': 345}, {'zxc': 567}]
+# for i in my_dict:
+#     for my_key in list(i):  # Оборачивая i в list мы избег. ош.: dictionary changed size during iteration
+#         i['file_name'] = my_key
+
+# for i in my_dict:
+#     for my_key in list(i):  # Оборачивая i в list мы избег. ош.: dictionary changed size during iteration
+#         if not 'file_name' in my_key:
+#             i.pop(my_key)
+# print(my_dict)
+# _______________________________________
+
+
+
+# # С помощью функции zip создать словарь
+# names = ['Tom', 'Dick', 'Harry']
+# ages = [50, 35, 60]
+
+# a = dict(zip(names, ages)) 
+# print(a)
+# _______________________________________

@@ -1,0 +1,27 @@
+guess = input()
+password = 'qwerty'
+count = 0
+while guess != password:
+  count += 1
+  print('Неправильный ввод пароля')
+  guess = input()
+print ('Вы потратили', count, 'попыток(ки)')
+
+
+
+i = int(input('Введите число: '))
+counter = 0
+while i != 0:
+  print('Вы не унадали загаданное число. Повторите попытку: ')
+  i = int(input('Введите число: '))
+  counter += 1
+else: print(f'Вы угадали! Вам на это понадобилось {counter + 1} попыток')
+
+
+s = int(input('Введите число: '))
+counter = 0
+while s != 77:
+  print('Не угадали(((( Попробуйте еще раз.')
+  s = int(input('Введите число: '))
+  counter +=1
+else: print(f'Вы угадали! Поздравляем! Для этого вам понадобилось {counter + 1} попыток.')

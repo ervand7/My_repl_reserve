@@ -1,0 +1,4 @@
+s = 'privet'
+while len(s) > 0:
+  print(s[0], s[1:])
+  s = s[1: ]

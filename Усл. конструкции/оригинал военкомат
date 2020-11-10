@@ -1,0 +1,15 @@
+heigth = 186
+age = 25
+
+if age >=18:
+
+  if heigth <= 170:
+    print('В танкисты')
+  elif heigth <= 185:
+    print('На флот')
+  elif heigth <= 200:
+    print('В десантники')
+  else:
+    print('В другие войска')
+else:
+  print('Не подлежит призыву')

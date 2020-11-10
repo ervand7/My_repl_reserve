@@ -1,0 +1,6 @@
+name = input('Введите имя')
+
+if name:
+  print('Hello', name)
+else:
+  print('Hello World')

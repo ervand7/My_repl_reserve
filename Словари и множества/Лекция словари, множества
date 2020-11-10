@@ -1,0 +1,134 @@
+# Задание 1. Дан список с визитами по городам и странам. Напишите код, который возвращает отфильтрованный список geo_logs, содержащий только визиты из России.
+# geo_logs = [ {'visit1': ['Москва', 'Россия']} ]
+
+# Задание 2. Выведите на экран все уникальные гео-ID из значений словаря ids. Т. е. список вида [213, 15, 54, 119, 98, 35]
+# ids = {'user1': [213, 213, 213, 15, 213], 
+#        'user2': [54, 54, 119, 119, 119]}
+
+# Задание 3. Дан список поисковых запросов. Получить распределение количества слов в них. Т. е. поисковых запросов из одного - слова 5%, из двух - 7%, из трех - 3% и т.д.
+# queries = ['смотреть сериалы онлайн', 'новости спорта']
+
+# Задание 4. Дана статистика рекламных каналов по объемам продаж. Напишите скрипт, который возвращает название канала с максимальным объемом. Т. е. в данном примере скрипт должен возвращать 'yandex'.
+# stats = {'facebook': 55, 'yandex': 120, 'vk': 115, 'google': 99, 'email': 42, 'ok': 98}
+
+# Задание 5. *(Необязательное) Напишите код для преобразования произвольного списка вида ['2018-01-01', 'yandex', 'cpc', 100] (он может быть любой длины) в словарь {'2018-01-01': {'yandex': {'cpc': 100}}}
+
+
+courses_list = [
+	{
+		"title":"Java-разработчик с нуля", 
+		"mentors": ["Павел Дерендяев", "Алексей Яковлев", "Дмитрий Гордин", "Сергей Сердюк", "Анатолий Корсаков", "Вадим Ерошевичев", "Алексей Фомичев", "Филипп Воронов"],
+		"duration": 11
+	},
+	{
+		"title":"Веб-разработчик с нуля",
+		"mentors": ["Николай Лопин", "Алёна Батицкая", "Алексей Дацков", "Александр Беспоясов", "Евгений Корытов", "Алексей Кулагин", "Ильназ Гильязов", "Владимир Языков", "Владимир Чебукин", "Эдгар Нуруллин", "Александр Дудинский"],
+		"duration": 19
+	},
+	{
+		"title":"Frontend-разработчик с нуля",
+		"mentors": ["Ильназ Гильязов", "Татьяна Тен", "Александр Фитискин", "Александр Шлейко", "Алёна Батицкая", "Александр Беспоясов", "Денис Ежков", "Николай Лопин", "Михаил Ларченко", "Владимир Чебукин", "Эдгар Нуруллин", "Евгений Шек", "Валерий Хаслер"],
+		"duration": 13
+	}
+]
+
+# max = 0
+# title = ''
+# # id = 0     по условию учителя
+# # for i ,course in enumerate(courses_list):     вместо строки ниже по условию учителя
+# for course in (courses_list):
+#   if len(course['mentors']) > max:
+#     max = len(course['mentors'])
+#     title = course['title']
+#     # id = i     по условию учителя
+# print(f'Самый крутой курс - {title}, на нем {max} преподавателей')
+
+# course_cpp = {'title':'C++', 'mentors':['Елена Никитина', 'Самый крутой программист'], 'duration': 18}
+# courses_list.append(course_cpp)
+# print(courses_list)
+
+
+# course_cpp = {}
+# course_cpp['title'] = 'C++'
+# # course_cpp.setdefault('mentors', [])
+# # course_cpp['mentors'] = ['Елена никитина', 'Самый крутой программист']
+# # course_cpp['duration'] = 18
+# # print(course_cpp)
+# if 'mentors' not in course_cpp.keys():
+#   course_cpp['mentors'] = []
+# course_cpp['mentors'].append('Елена Никитина')
+# course_cpp['duration'] = 18
+# print(course_cpp)
+
+
+
+java_set = set(courses_list[0]['mentors'])
+# java_set = set(["Павел Дерендяев", "Алексей Яковлев", "Дмитрий Гордин", "Сергей Сердюк", "Анатолий Корсаков", "Вадим Ерошевичев", "Алексей Фомичев", "Филипп Воронов"])
+# print(java_set)
+web_set = set(courses_list[1]['mentors'])
+frontend_set = set(courses_list[2]['mentors'])
+
+print(java_set.intersection(web_set))
+print(java_set&web_set)
+print(java_set&frontend_set)
+print('\nПересечение фронтенд и веб')
+print(frontend_set&web_set)
+print('\nРазность фронтенд и веб')
+print(frontend_set.difference(web_set))
+print('\nРазность веб и фронтенд')
+print(web_set.difference(frontend_set))
+print('\nСимметрическая разность веб и фронтенд')
+print(web_set.symmetric_difference(frontend_set))
+print('\nСимметрическая разность веб и фронтенд')
+print(frontend_set.symmetric_difference(web_set))
+
+print('\nПересечение фронтенд и веб и java')
+print(java_set & web_set & java_set)
+
+
+
+# кейс: Анализируем курсы "Нетологии" по программированию
+# 1) смотрим преподавателей каждого курса (работа со словарем) - for, items()
+# for course in courses_list:
+# 	print("Название курса: {}".format(course["title"]))
+# 	print("Преподаватели курса: {}".format(", ".join(course["mentors"])))
+# 	print()
+
+# 2) считаем, какой курс "круче": сколько преподавателей преподает на каждом из курсов, длительность (работа со словарем)
+# leader_id = 0
+# count = 0
+# for i, course in enumerate(courses_list):
+# 	print("Название курса: {}".format(course["title"]))
+# 	print("{} преподавателей, {} месяцев".format(len(course["mentors"]), course["duration"]))
+# 	print()
+# 	if len(course["mentors"]) > count:
+# 		count = len(course["mentors"])
+# 		leader_id = i
+
+# leader_dict = courses_list[leader_id]
+# print("Самый крутой курс: {} ({} преподавателей)".format(leader_dict["title"], courses_list[leader_id]))
+# 3) собираем "мегакурс" (создание словаря, добавление элементов, безопасная работа с ключами - [], get(), setdefault())
+# 4) смотрим, кто из преподавателей преподает на нескольких курсах (пересечение множеств)
+
+
+# mentors_unique = set([])
+# for course in courses_list:
+# 	mentors_unique = mentors_unique.union(set(course["mentors"]))
+
+# print(mentors_unique)
+
+# смотрим, кто из преподавателей преподает на нескольких курсах
+# mentors_prev = set([])
+# title_prev = ""
+# for course in courses_list:
+# 	if len(mentors_prev) == 0:
+# 		mentors_prev = set(course["mentors"])
+# 		title_prev = course["title"]
+# 		continue
+
+# 	title_cur = course["title"]
+# 	print(f"{title_cur} и {title_prev}")
+# 	print(mentors_prev & set(course["mentors"]))
+# 	print()
+# 	mentors_prev = set(course["mentors"])
+# 	title_prev = course["title"]

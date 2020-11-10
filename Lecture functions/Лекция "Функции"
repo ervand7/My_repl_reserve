@@ -1,0 +1,178 @@
+
+
+# def square(number):
+  # """
+  # this is my first function
+  # """
+  # result = number ** 21
+  # return result
+
+# print(square(7))
+# my_res = square(10)
+# print(my_res)
+
+# help(square)
+
+# def square_2():
+#   user_input = int(input('Введите число: '))
+#   return user_input ** 2
+
+# print(square_2())
+
+
+# def power(number_1, number_2=2):
+#   result = number_1 ** number_2
+#   return result
+
+# print(power(5))
+
+# def square_3(number):
+#   result = number ** 2
+#   print(result)
+
+# print(square_3(5))
+
+number = 5
+power = 2
+
+# def square_4():
+#   number = 6
+#   power = 3
+#   # some_number = 1
+#   # print(some_number)
+#   return number ** power
+
+# print(number ** power)
+# print(square_4())
+# # print(some_number)
+
+# name = 'James'
+
+# def say_hi():
+#   global name
+#   name = 'Oleg'
+#   print('Hello', name)
+
+# say_hi()
+# print(name)
+
+# def say_hi():
+#   name = 'Oleg'
+#   def get_name():
+#     nonlocal name
+#     name = input('Введите имя: ')
+#     return name
+#   # get_name()
+#   print('Hello', name, get_name())
+
+# say_hi()
+
+
+# lambda x, y: x+y
+# res = lambda x, y: x+y
+# print(res(5, 8))
+
+students_list = [
+    {"name": "Василий", "surname": "Теркин", "gender": "м", "program_exp": True, "grade": [8, 8, 9, 10, 9], "exam": 8},
+    {"name": "Мария", "surname": "Павлова", "gender": "ж", "program_exp": True, "grade": [7, 8, 9, 7, 9], "exam": 9},
+    {"name": "Ирина", "surname": "Андреева", "gender": "ж", "program_exp": False, "grade": [10, 9, 8, 10, 10], "exam": 7},
+    {"name": "Татьяна", "surname": "Сидорова", "gender": "ж", "program_exp": False, "grade": [7, 8, 8, 9, 8],"exam": 10},
+    {"name": "Иван", "surname": "Васильев", "gender": "м", "program_exp": True, "grade": [9, 8, 9, 6, 9], "exam": 5},
+    {"name": "Роман", "surname": "Золотарев", "gender": "м", "program_exp": False, "grade": [8, 9, 9, 6, 9], "exam": 6}
+]
+
+
+# def get_avg_ex_grade(students):
+#   sum_ex = 0
+#   for student in students:
+#     sum_ex += student['exam']
+#   return sum_ex / len(students)
+
+# print(get_avg_ex_grade(students_list))
+
+
+
+# def get_avg_hw_grade(students):
+#   sum_hw = 0
+#   for student in students:
+#     sum_hw += sum(student['grade']) / len(student['grade'])
+#   return sum_hw / len(students)
+
+# print(get_avg_hw_grade(students_list))
+
+
+
+# def get_avg_exp_grade(students, exp = True):
+#   sum_exam = 0
+#   counter = 0
+#   for student in students:
+#     if student['program_exp'] == exp:
+#       sum_exam += student['exam']
+#       counter += 1
+#   return round(sum_exam / counter, 2)
+
+# print(get_avg_exp_grade(students_list, False))
+
+
+
+
+
+
+# def get_avg_exp_grade(students, exp = None):
+#   sum_exam = 0
+#   counter = 0
+#   for student in students:
+#     if student['program_exp'] == exp or exp is None:
+#       sum_exam += student['exam']
+#       counter += 1
+#   return round(sum_exam / counter, 2)
+
+# print(get_avg_exp_grade(students_list))
+# print(get_avg_exp_grade(students_list, True))
+# print(get_avg_exp_grade(students_list, False))
+
+
+
+
+
+def get_avg_ex_grade(students, exp=None, gender=None):
+  sum_ex = 0
+  counter = 0
+  for student in students:
+    if student['program_exp'] == exp and student['gender'] == gender or \
+    student['program_exp'] == exp and gender is None or \
+    student['gender'] == gender and exp is None or \
+    gender is None and exp is None:
+      sum_ex += student['exam']
+      counter += 1
+  return round(sum_ex / counter, 2)
+
+print(get_avg_ex_grade(students_list))
+# print(get_avg_ex_grade(students_list, True))
+# print(get_avg_ex_grade(students_list, False))
+# print(get_avg_ex_grade(students_list, False, 'ж'))
+# print(get_avg_ex_grade(students_list, False, 'м'))
+# print(get_avg_ex_grade(students_list, True, 'м'))
+
+# def get_avg_hw_grade(students):
+#   sum_hw = 0
+#   for student in students:
+#     sum_hw += sum(student['grade']) / len(student['grade'])
+#   return round(sum_hw / len(students), 2)
+
+# def main(students):
+#   while True:
+#     user_input = input('Введите команду: ')
+#     if user_input == '1':
+#       print(get_avg_ex_grade(students))
+#     elif user_input == '2':
+#       print(get_avg_ex_grade(students, True))
+#     elif user_input == '3':
+#       print(get_avg_ex_grade(students, False))
+#     elif user_input == '4':
+#       get_avg_hw_grade(students)
+#     elif user_input == 'q':
+#       print('До свидания!')
+#       break
+
+# main(students_list)

@@ -1,0 +1,49 @@
+class Track:
+    track_name = ''
+    duration = 0
+
+    def show(self, name_of_track, duration_of_track=0):
+        self.track_name = name_of_track
+        self.duration = duration_of_track
+        print(f'{self.track_name} - {self.duration}')
+
+qw = Track()
+er = Track()
+ty = Track()
+
+
+
+class Album:
+    album_name = ''
+    group_name = ''
+    tracks_list = []
+    full_list = [
+        qw.show('asdasd', 12),
+        er.show('qweqweqwe', 122),
+        ty.show('zxczx', 332)
+        ]
+# на всякий случай сюда добавляю атрибуты предыдущего класса
+    track_name = ''
+    duration = 0
+
+
+
+    def add_track(self, name_of_track, duration_of_track=0):
+        self.track_name = name_of_track
+        self.duration = duration_of_track
+        p = Track()
+        p.show(self.track_name, self.duration)
+        self.full_list.append(p)
+
+
+    def get_tracks(self, lst = full_list):
+        self.tracks_list = lst
+
+
+asdasdasd = Album()
+asdasdasd.add_track('sdfsdfsdf', 32321321)
+asdasdasd.get_tracks()
+
+аааа = Album()
+аааа.add_track('ggggg', 555)
+asdasdasd.get_tracks()

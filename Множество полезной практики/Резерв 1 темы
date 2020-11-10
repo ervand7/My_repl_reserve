@@ -1,0 +1,1158 @@
+
+# # Напишите программу, которая выводит чётные числа из заданного списка и останавливается, если встречает число 237.
+
+
+
+
+# numbers = [   
+#     386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
+#     399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
+# ]
+
+# for number in numbers:
+#     if (number % 2 == 0) and (number != 237):
+#         print(number)
+#     elif number == 237:
+#         break
+
+
+# def solve(n):
+#     n1 = n
+#     n2 = int(str(n) * 2)
+#     n3 = int(str(n) * 3)
+#     print(n1 + n2 + n3)
+
+# solve(1)
+
+# lst = [1, 2, 3, 4, 5]
+# print(f'Первый: {lst[0]}; Последний: {lst[-1]}')
+
+# v = input('Введите числа через запятую: ')
+# v_str = list(v.split(','))
+# v_int = map(int, v_str)
+
+# lst = list(v_int)
+# tup = tuple(lst)
+
+# print('Список:', lst)
+# print('Кортеж:', tup)
+
+
+
+
+# def convert(seconds):
+#     days = seconds // (24 * 3600)
+#     seconds %= 24 * 3600
+#     hours = seconds // 3600
+#     seconds %= 3600
+#     minutes = seconds // 60
+#     seconds %= 60
+#     print(f'{days}:{hours}:{minutes}:{seconds}')
+
+# convert(1234565)
+
+# a = [1, 2, 3, 4, 5]
+# print(list(reversed(a)))
+
+# b = '12345'
+# print(list(reversed(b)))
+# d = list(b)
+# print((d))
+# e = ''.join(list(reversed(d)))
+# print(e)
+
+# def is_palindrome(string):
+#     return string == ''.join(list(reversed(string)))
+
+# print(is_palindrome('аргентинаманитнегра'))
+
+# def is_palindrome(string):
+#     return string == string[::-1]
+
+# print(is_palindrome('аргентинаманитнегра'))
+
+
+
+
+# # НЕПОНЯТНО!!!!!!!!!!!!!!!!!!
+# def pascal_triangle(n):
+#    row = [1]
+#    y = [0]
+#    for x in range(max(n, 0)):
+#       print(row)
+#       row = [left + right for left, right in zip(row + y, y + row)]
+   
+# pascal_triangle(10) 
+
+
+
+# # Найдите три ключа с самыми высокими значениями в словаре 
+# my_dict = {'a':500, 'b':5874, 'c': 560,'d':400, 'e':5874, 'f': 20}
+# # print(list(reversed(sorted(my_dict.keys()))))
+# print(max(my_dict.values()))
+
+# result = sorted(my_dict, key=my_dict.get, reverse=True)[:3]
+# print(result)
+
+# max = 0
+# for key, value in my_dict.items():
+#   if value > max:
+#     max = value
+#     name = key
+# print(f'Лучшая плющадка -  {name}, там {max} продаж.')
+
+# print(sorted([5, 2, 3, 1, 4], reverse = True))
+# a = [3, 2, 65, 67, 8, 9, 0, 1234]
+# a.sort()
+# print(a)
+
+
+# print(sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'}, reverse = True))
+
+
+# print(sorted("This is a test string from Andrew".split()))
+
+
+# student_tuples = [
+#         ('john', 'A', 15),
+#         ('jane', 'B', 12),
+#         ('dave', 'B', 10),
+#     ]
+
+# print(sorted(student_tuples, key=lambda st: st[0], reverse = True))
+
+# func = lambda x, y: x / y
+# print(round(func(10, 3)))
+
+# print('''fdgvfv
+# Hello
+# World''')
+
+# i = 0
+# while i <= 500:
+#   print(i)
+#   i += 1
+
+# s = 1
+# while s < 600:
+#   print(s)
+#   s = s * 2
+
+# i = 20
+# while i >= 10:
+#   print(i)
+#   i -= 1
+
+# i = int(input('Введите число: '))
+# counter = 0
+# while i != 0:
+#   print('Вы не унадали загаданное число. Повторите попытку: ')
+#   i = int(input('Введите число: '))
+#   counter += 1
+# else: print(f'Вы угадали! Вам на это понадобилось {counter + 1} попыток')
+
+
+
+
+# s = int(inp  # counter += 1
+  # print(i)ut('Введите число: '))
+# counter = 0
+# while s != 77:
+#   print('Не угадали(((( Попробуйте еще раз.')
+#   s = int(input('Введите число: '))
+#   counter +=1
+# else: print(f'Вы угадали! Поздравляем! Для этого вам понадобилось {counter + 1} попыток.')
+
+# a = [1, 2, 3] * 5
+# # print(a)
+# while 3 in a:
+#   a.remove(3)
+# print(a)
+
+# s = 'asdasdswewewewewada'
+# print(s[::-1])
+
+
+# s = 'qwerty'
+# while len(s) > 0:
+#   print(s[0], s[1:])
+#   s = s[1:]
+
+# # Вывести на экран все числа от 50 до 150 включительно с помощью цикла while.
+
+# a = 50
+# while a <= 150:
+#   print(a)
+#   a +=1
+
+
+# Вывести на экран при помощи цикла while следующий ряд чисел: 13, 20, 27 ...., 349.
+
+# a = 13
+# while a <= 349:
+#   print(a)
+#   a += 7
+
+
+# Напишите программу, которая при помощи цикла while сделает обратный отсчет от 15 до 0 (включительно) и затем выведет "Поехали!" в самом конце.
+
+# a = 15
+# while a >= 0:
+#   print(a)
+#   a -= 1
+# else: 
+#   print("Поехали!")
+
+# Выведите все точные квадраты натуральных чисел, не превосходящие данного числа N.
+# Входные данные
+# Задано единственное целое число N
+# Выходные данные
+# Необходимо вывести  все точные квадраты натуральных чисел, не превосходящие данного числа N.
+
+# Примеры
+# входные данные
+# 15
+# выходные данные
+# 1
+# 4
+# 9
+
+
+# i = 1
+# while i <= 3:
+#   print(i ** 2) 
+#   i = (i + 1)
+
+
+# В первый день спортсмен пробежал x километров, а затем он каждый день увеличивал пробег на 10% от предыдущего значения. По данному числу y определите номер дня, на который пробег спортсмена составит не менее y километров.
+# Входные данные
+# Программа получает на вход действительные числа x и y
+
+# Выходные данные
+# Программа должна вывести одно натуральное число.
+
+# Примеры
+# входные данные
+# 10
+# 20
+
+# выходные данные
+# 9
+
+
+# x = 10
+# y = 20
+# while x <= y:
+#   print(int(y - (x + (x / 100 * 10))))
+#   x += 1
+#   break
+
+
+
+# Мишка Лимак хочет стать самым большим медведем, ну, или хотя бы стать больше своего старшего брата Боба.
+# Сейчас вес Лимака равен a, а вес Боба равен b. Гарантируется, что вес Лимака меньше или равен весу Боба.
+# Лимак ест много, и его вес утраивается каждый год, а вес Боба удваивается каждый год.
+# Через сколько целых лет Лимак станет строго больше (т. е. будет весить строго больше) Боба?
+# Входные данные
+# В единственной строке находятся два целых числа a и b (1 ≤ a ≤ b ≤ 10) — веса Лимака и Боба соответственно.
+# Выходные данные
+# Выведите одно целое число — через сколько целых лет Лимак станет строго больше Боба.
+
+# limak = int(input('Введите вес Лимака: '))
+# bob = int(input('Введите вес Боба: '))
+# i = (bob + 1)
+# counter = 0
+# while limak < i:
+#   (limak * 3)
+#   (bob * 2)
+#   limak += 1
+#   bob += 1
+#   counter += 1
+
+
+# if limak == bob:
+#   print('Медвежонку понадобится 1 год, чтобы обогнать братика')
+
+# else: 
+#   print(f'Медвежонку понадобится {int(counter / 2)} года, чтобы обогнать братика')
+
+
+
+
+# n = int(input('Введите число: '))
+# factorial = 1
+# for i in range(2, n+1):
+#     factorial += i
+# print(factorial)
+
+
+
+# while True:
+#   a = input()
+#   if a == '10':
+#     break
+#   print(a, len(a))
+
+# a = range(5)
+
+# print(a)
+# print(type(a))
+# print(list(reversed(a)))
+
+
+# # ПОНЯТНАЯ ФОРМУЛА ФАКТОРИАЛА!!!!!!!!!!!!!!!!!!!!!!!
+# # ДЛЯ СУММИРОВАНИЯ
+# a = int(input('Введите число: '))
+# counter = 0
+# for i in range(1, a + 1):
+#     counter += i
+# print(counter)
+
+# # ДЛЯ УМНОЖЕНИЯ
+# a = int(input('Введите число: '))
+# counter = 1
+# for i in range(1, a+1):
+#     counter *= i
+# print(counter)
+# # СУММА АРИФМЕТИЧЕСКОЙ ПРОГРЕССИИ!!!!!!!!!!!!!!!!!!!!!!!
+# print(sum(range(1, 123232322301, 353998)))
+
+# for i in reversed(range(5)):
+#   print(i)
+
+# ОДНОВРЕМЕННЫЙ ВЫВОД ЧИСЕЛ, ДЕЛИМЫХ БЕЗ ОСТАТКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# counter = 0
+# for i in range(100, 10000000):
+#   if i %13 == 0 and i %117 == 0 and i %133 == 0 and i %666 == 0:
+#     counter += 1
+#     print(i)
+# print(counter)
+
+
+# ВЫВЕДЕНИЕ КВАДРАТОВ В ДИАПАЗОНЕ
+# counter = 0
+# for i in range(1, 100, 13):
+#   counter += 1
+#   print(i, i ** 2)
+# print(counter)
+
+# a = int(input('Введите число: '))
+# s = 0
+# for i in range(1, a + 1):
+#   s += i
+# print(s)
+
+# n = int(input('Введте число: '))
+# for i in range(n):
+#   print('Супер!')
+
+
+# for i in range(1, 22):
+#   print('|' * i)
+
+# for i in range(1, 11):
+#   print(142857 ** i)
+
+# По данному целому числу N распечатайте все квадраты натуральных чисел, не превосходящие N, в порядке возрастания.
+
+# Входные данные
+# Вводится натуральное число.
+
+# Выходные данные
+# Выведите ответ на задачу.
+
+# Примеры
+# входные данные
+# 50
+# выходные данные
+# 1 4 9 16 25 36 49 
+# a = int(input('Введите число: '))
+# for i in range(1, a + 1):
+#   if (i ** 2) < a:
+#     print(i ** 2)
+
+
+
+
+# У вас есть массив чисел, составьте из них максимальное число. Например:
+
+#  [61, 228, 9] -> 961228
+
+# a = [61, 228, 9]
+# b = (sorted(a))
+# c = str(b[0]) + str(b[1]) + str(b[2])
+# d = int(c)
+# print(d)
+
+
+# обход по значениям
+# a = [2, 3, 5, 6, 87]
+# count = 0
+# for i in a:
+#   print(i, a.index(i))
+
+# # обход по индексам
+# a = [2, 3, 5, 6, 87, 4, 5, 6, 7]
+# n = len(a)
+# for i in range(n):
+#   print(i, a[i])
+#   a[i] += 5
+# print(a)
+
+
+# # Выведение уникального списка
+# a = [1, 2, 3, 445, 5, 6, 67, 44, 2, 1, 1]
+# b = []
+# for i in a:
+#   if not i in b:
+#     b.append(i)
+# print(b)
+
+
+# # Выведение списков четных и нечетных
+# a = [1, 2, 3, 445, 5, 6, 67, 44, 2, 1, 1]
+# chet = []
+# necht = []
+
+# for i in a:
+#   if i %2 == 0:
+#     chet.append(i)
+#   else:
+#     necht.append(i)
+# print(f'{chet} - четные')
+# print(f'{necht} - нечетные')
+
+# Вычисляем, в каком индексе у нас четные, а в каком нечетные числа
+# a = [1, 2, 3, 445, 5, 6, 67, 44, 2, 1, 1]
+# chet = []
+# necht = []
+# n = len(a)
+# for i in range(n):
+#   if a[i] %2 == 0:
+#     chet.append(i + 1)
+#   else:
+#     necht.append(i + 1)
+# print(chet)
+# print(necht)
+
+
+# # Вычисляем, где у нас заглавные буквы, а где прописные
+# s = 'helLo WOrld 121 sd JdLiBknnnJI'
+# for i in s:
+#   if i >= 'a' and i <= 'z':
+#     print(i, '- small')
+#   elif 'A' <= i <= 'Z':
+#     print(i, '- big')
+#   else: 
+#     print(i, '- это не буква')
+
+# # # Выводим парные глассные
+# vowels = 'aeiou'
+# s = 'aertiooikjoaikl'
+# n = len(s)
+# for i in range(n - 1):
+#   if s[i] in vowels and s[i + 1] in vowels:
+#     print(s[i], s[i + 1])
+
+
+# a = [[0 ,2, 4, 6], [1, 5, 9, 13], [3, 10, [4, 5, 7, 11], 17, 19]]
+# print(len(a))
+# print(a[2][3])
+# print(a[0][3])
+# print(a[2][2][1])
+
+# b = ['hello', 'hi', 'world']
+# print(b[2][0])
+# print(b[2][::-1])
+
+
+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+a = [
+  [0 ,2, 4, 6], 
+  [1, 5, 9, 13], 
+  [3, 10, 17, 19]
+]
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# print(sum(a[0]) + sum(a[1]) + sum(a[2]))
+# for i in a:
+#   for j in i:
+#     print(j, end = ' ')
+#   print()
+
+
+# for i in a:
+#   for j in i:
+#     j += 10
+#     print(j, end = ' ')
+#   print()
+
+
+# q = len(a)
+# for i in range(q):
+#   for j in range(4):
+#     a[i][j] += 10
+#     print(a[i][j], end = ' ')
+#   print()
+# print(a)
+
+# # ЕСЛИ МЫ ХОТИМ ПЕРЕБИРАТЬ ЦИКЛ НЕ СЛЕВА НАПРАВО ПОСТРОЧНО, СВЕРХУ ВНИЗ ПО ОДНОЙ ЦИФРЕ, ТО ПРОСТО ЦИКЛЫ МЕНЯЕМ МЕСТАМИ
+# q = len(a)
+# for j in range(4):
+#   for i in range(q):
+#     a[i][j]
+#     print(a[i][j], end = ' ')
+#   print()
+
+
+# # А ТЕПЕРЬ ОБХОДИМ СПРАВА НАЛЕВО И СНИЗУ ВВЕРХ
+# for i in range(2, -1, -1):
+#   for j in range(3, -1, -1):
+#     print(a[i][j], end = ' ')
+#   print()
+
+
+# # ИЩЕМ СУММУ СТОЛБЦОВ СЛЕВА НАПРАВО И СВЕРХУ ВНИЗ
+# for i in range(3):
+#   s = 0
+#   for j in range(4):
+#     s += a[i][j]
+#   print(s)
+
+
+# # # ИЩЕМ СУММУ СТОЛБЦОВ СВЕРХУ ВНИЗ ПОСЛЕ КАЖДОГО ЧИСЛА
+# for j in range(4):
+#   s = 0
+#   for i in range(3):
+#     s += a[i][j]
+#   print(s)
+
+
+
+
+
+# # Создаем таблицу из произвольных значений
+# a = []
+# n = int(input()) # line
+# m = int(input()) # pillar
+
+# for i in range(n):
+#   a.append([1] * m)
+# print(i)
+# for i in a:
+#   print(i)
+
+
+# # Я так и не понял, что это значит
+# n = int(input()) # line
+# m = int(input()) # pillar
+
+# for i in range(n):
+#   b = []
+#   for i in range(m):
+#     b.append(int(input()))
+#   a.append(b)
+# for i in a:
+#   print(i)
+
+
+
+
+
+# n = int(input())
+# if n %2 != 0:
+#     print('Weird')
+# elif (n %2 == 0) and (2<= n <= 5):
+#     print('Not Weird')
+# elif (n %2 == 0) and (6<= n <= 20):
+#     print('Weird')
+# elif (n %2 == 0) and (n > 20):
+#     print('Not Weird')
+
+
+# n = int(input('Введите число: '))
+# for i in range(-1, n -1):
+#     i += 1
+#     print(i ** 2)
+
+
+# # # Определение года на високосность
+# a = int(input('Введите год: '))
+# b = 10 ** 999
+
+# if a in range(0, b, 400):
+#   print('Leap')
+# elif (a in range(0, b, 4)) and not (a in range(0, b, 100)):
+#   print('Leap')
+# else:
+#   print('Not leap')
+
+
+# # ТЕПЕРЬ ЗАВЕРНЕМ ЭТО ВСЕ В ФУНКЦИЮ
+# def is_leap(year):
+
+#     leap = True
+#     b = 10 ** 99
+#     if year in range(0, b, 400):
+#         return leap
+#     elif (year in range(0, b, 4)) and not (year in range(0, b, 100)):
+#         return leap
+#     else:
+#         return False
+#     return
+
+# year = int(input())
+# print(is_leap(year))
+
+
+
+
+# lst = []
+# for i in range(int(input())):
+
+#     name = input()
+#     score = (input())
+#     lst += name, float(score)
+
+# counter = []
+# for i in lst[::2]:
+#   counter.append(i)
+# counter_2 = []
+# for i in lst[1::2]:
+#   counter_2.append(i)
+# vvv = list(zip(counter_2, counter))
+# aa = sorted(vvv)
+
+
+# if (aa[0][0]) == (aa[1][0]) == (aa[2][0]):
+#   print(max(aa)[1])
+
+# elif (aa[1][0]) == (aa[2][0]):
+#   print(aa[1][1])
+#   print(aa[2][1])
+
+# elif ((aa[0][0]) == (aa[1][0]) < (aa[2][0]) == (aa[3][0]) < (aa[4][0])):
+#     print(aa[2][1])
+#     print(aa[3][1])
+
+# elif  (aa[0][0] < (aa[1][0])):
+#     print(aa[1][1])
+
+# elif  (aa[0][0] < (aa[1][0]) < (aa[2][0])):
+#     print(aa[1][1])
+
+# elif (aa[0][0]) == (aa[1][0]):
+#   print(aa[0][1])
+#   print(aa[1][1])
+
+# elif  ((aa[-4][0]) == (aa[-3][0]) == (aa[-2][0]) == (aa[-1][0])):
+#     print(aa[-1][1])
+
+# elif  (aa[3][0] == aa[2][0] > (aa[1][0])):
+#     print(aa[2][1])
+#     print(aa[3][1])
+
+
+
+
+
+
+
+
+# import itertools
+
+# x = int(input())
+# y = int(input())
+# z = int(input())
+# n = int(input())
+
+# x = 0
+# y = 1
+
+# t = (list(itertools.product([0, 1, x, y, z], repeat=3)))
+# counter = []
+# for i in t:
+#   if (i[0] + i[1] + i[2]) != n:
+#     counter.append(i)
+# counter_2 = []
+# for s in counter:
+#   if not s in counter_2:
+#     counter_2.append(s)
+# counter_3 = []
+# for o in counter_2:
+#   counter_3.append(list(o))
+# print(counter_3)
+
+
+# Решение с ютуба
+
+# if __name__ == '__main__':
+#     x = int(input())
+#     y = int(input())
+#     z = int(input())
+#     n = int(input())
+# a = [[i, j, k] for i in range (x + 1) for j in range (y + 1) for k in range (z + 1) if i + j + k != n]
+# print(a)
+
+
+# a = [1, 2, 3, 1, 2, 3, 1, 2, 3]
+# a = list(set(a))
+# print(a)
+
+# a = {54, 32, 54, 3, 4, 2}
+# a.add(9)
+# a.update([5, 6, 7])
+# a.update(range(4, 34))
+# a.update({76, 87, 89})
+# a.discard(4)
+# a.remove(7)
+
+
+# a = {54, 32, 54, 3, 4, 2}
+# # print(a.pop())
+# # print(a.pop())
+# # print(a.pop())
+# # print(a.pop())
+# # print(a.pop())
+# # print(a)
+
+# print(len(a))
+# print(4 in a, 7 not in a)
+
+
+# a = {4, 3, 2, 1}
+# b = {3, 4, 5, 6, 7}
+# c = {10, 11, 12, 4, 5, 6, 2}
+# print(a & b & c)
+# a&=c
+# print(a, c)
+
+# print(a | b | c)
+# print(b - a)
+# print(a ^ c)
+
+
+# r = dict(moskva = 495, piter = 812, penza = 8412)
+# print(r)
+
+# a = [['moskva', 495], ['piter', 812], ['penza', 8412]]
+# print(dict(a))
+# n = dict.fromkeys(['q', 'e', 'f'], 303)
+# print(n)
+# person = {}
+# s = 'Ivanov Ivan Samara SGU 5 4 5 5 4 3 5'
+# s = s.split()
+# print(s)
+
+# person['Last Name'] = s[0]
+# # print(person)
+# person['First Name'] = s[1]
+# person['City'] = s[2]
+# person['university'] = s[3]
+# # print(person)
+# person['marks'] = []
+# for i in s[4:]:
+#   person['marks'].append(int(i))
+# # print(person)
+
+# del person['Last Name']
+# print(len(person))
+# print(1 not in person, 5 not in person)
+
+# # for i in person:
+# #   print(i, person[i])
+# print(person.get(4, 'Nosuch key'))
+# person.setdefault(7 ,'lk')
+# print(person)
+# print(person.pop('City'))
+
+# a = {'moskva': 495, 'piter': 812, 'penza': 8412}
+# print(a.popitem())
+# print(a.popitem())
+# print(a)
+# a = a.pop('moskva')
+# print(a)
+
+# print(a.keys())
+# print(a.values())
+
+# for key in a.keys():
+#   print(key, end = ', ')
+
+# for value in a.values():
+#   print(value, end = ', ')
+
+# for item in a.items():
+#   print(item)
+
+
+# if __name__ == '__main__':
+#     N = int(input())
+#     lst = []
+#     for i in range(N):
+#       a = input().split(' ')
+#       command = a[0]
+#       if command == 'append':
+#         lst.append(int(a[1]))
+#       elif command == 'insert':
+#         lst.insert(int(a[1]), int(a[2]))
+#       elif command == 'sort':
+#         lst.sort()
+#       elif command == 'pop':
+#         if len(lst) != 0:
+#           lst.pop()
+#       elif command == 'reverse':
+#         lst.reverse()
+#       elif command == 'remove':
+#         lst.remove(int(a[1]))
+#       elif command  == 'print':
+#         print(lst)
+#++++++++++++++++++++++++++++++++^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# if __name__ == '__main__':
+#   # n = int(input()) # не понимаю, зачем это было в решении. Это лишний элемент
+#   integer_list = tuple(map(int, input().split()))
+#   print(hash(integer_list))
+
+
+# a = [-1, 2, -3, 4, 5]
+# b = list(map(abs, a))
+# c = [abs(i) for i in a]
+# print(c)
+# print(b)
+
+# def f(x):
+#   return x ** 2
+
+# a = [-1, 2, -3, 4, 5]
+# b = list(map(f, a))
+# print(b)
+
+
+# def tytytyty(x):
+#   return x ** 2
+
+# a = ['hello', 'hi', 'good morning']
+# b = list(map(str.upper, a))
+# print(b)
+
+
+
+
+
+
+# a = ['hello', 'hi', 'good morning']
+# b = list(map(lambda x: x[::-1], a))
+# print(b)
+# ИЛИ
+# a = ['hello', 'hi', 'good morning']
+# b = list(map(lambda x: x[::-1], a))
+# print(b)
+# с = [i [::-1] for i in a]
+
+
+# a = ['hello', 'hi', 'good morning']
+# b = list(map(lambda x: x + '!', a))
+# print(b)
+
+# a = ['hello', 'hi', 'good morning']
+# b = list(map(list, a))
+# print(b)
+
+# s = list(map(int, input().split()))
+# print(s)
+
+
+# По третьему кругу делаю дз по циклам\\\/\/\/\/\/\///\/\/\/\/\/
+# Мы делаем MVP dating-сервиса, и у нас есть список парней и девушек (их число может варьироваться):
+
+# boys = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
+# girls = ['Kate', 'Liza', 'Kira', 'Emma', 'Trisha']
+
+# a = sorted(boys)
+# b = sorted(girls)
+# c = zip(a, b)
+# d = list(c)
+
+
+# if len(a) != len(b):
+#   print('Возможно вы останетесь без пары, так как на сайте в данный момент количество М и Ж сильно разнится')
+
+# else:
+#   print('Идеальные пары:')
+#   for i in d:
+#     print(f'{i[0]} и {i[1]}
+
+
+
+
+# cook_book = [
+#   ['салат',
+#       [
+#         ['картофель', 100, 'гр.'],
+#         ['морковь', 50, 'гр.'],
+#         ['огурцы', 50, 'гр.'],
+#         ['горошек', 30, 'гр.'],
+#         ['майонез', 70, 'мл.'],
+#       ]
+#   ],
+#   ['пицца',  
+#       [
+#         ['сыр', 50, 'гр.'],
+#         ['томаты', 50, 'гр.'],
+#         ['тесто', 100, 'гр.'],
+#         ['бекон', 30, 'гр.'],
+#         ['колбаса', 30, 'гр.'],
+#         ['грибы', 20, 'гр.'],
+#       ],
+#   ],
+#   ['фруктовый десерт',
+#       [
+#         ['хурма', 60, 'гр.'],
+#         ['киви', 60, 'гр.'],
+#         ['творог', 60, 'гр.'],
+#         ['сахар', 10, 'гр.'],
+#         ['мед', 50, 'мл.'],  
+#       ]
+#   ]
+# ]
+
+# person = int(input('Введите число гостей: '))
+# for i in cook_book:
+#   print(f'\n{i[0]}:')
+#   for s in i[1]:
+#     print(f'{s[0]}, {s[1] * person}{s[2]}')
+
+
+
+
+# Дан список с визитами по городам и странам. Напишите код, который возвращает отфильтрованный список geo_logs, содержащий только визиты из России.
+
+
+# geo_logs = [
+#     {'visit1': ['Москва', 'Россия']},
+#     {'visit2': ['Дели', 'Индия']},
+#     {'visit3': ['Владимир', 'Россия']},
+#     {'visit4': ['Лиссабон', 'Португалия']},
+#     {'visit5': ['Париж', 'Франция']},
+#     {'visit6': ['Лиссабон', 'Португалия']},
+#     {'visit7': ['Тула', 'Россия']},
+#     {'visit8': ['Тула', 'Россия']},
+#     {'visit9': ['Курск', 'Россия']},
+#     {'visit10': ['Архангельск', 'Россия']}
+# ]
+
+# f = []
+# for i in geo_logs:
+#   if 'Россия' in list(i.values())[0][1]:
+#     f.append(i)
+# a = (list(f))
+# for s in a:
+#     for t in s:
+#       print()
+#       print(t)
+#       for dd in (list(s.values())[0]):
+#         print(dd, end = ' ')
+#     print()
+
+
+
+# Выведите на экран все уникальные гео-ID из значений словаря ids. Т. е. список вида [213, 15, 54, 119, 98, 35]
+
+# ids = {'user1': [213, 213, 213, 15, 213], 
+#        'user2': [54, 54, 119, 119, 119], 
+#        'user3': [213, 98, 98, 35]}
+
+
+# lst = []
+# for i in ids.values():
+#   a = (set(i))
+#   for t in a:
+#     if not t in lst:
+#       lst.append(t)
+# print(lst)
+
+
+
+
+
+# Дан список поисковых запросов. Получить распределение количества слов в них. Т. е. поисковых запросов из одного - слова 5%, из двух - 7%, из трех - 3% и т.д.
+
+# queries = [
+#     'смотреть сериалы онлайн',
+#     'новости спорта',
+#     'афиша кино',
+#     'курс доллара',
+#     'сериалы этим летом',
+#     'курс по питону',
+#     'сериалы про спорт',
+# ]
+
+# cntr = []
+# for i in queries:
+#   a = (len(i.split()))
+#   cntr.append(a)
+# # print(cntr)
+
+# from collections import Counter
+# o = (dict(Counter(cntr)))
+# # print(o)
+
+# for key, value in o.items():
+#   print(f'Количество запростов из {key} слов = {value / len(cntr) * 100}%')
+
+
+# # Дана статистика рекламных каналов по объемам продаж. Напишите скрипт, который возвращает название канала с максимальным объемом. Т. е. в данном примере скрипт должен возвращать 'yandex'.
+
+# stats = {'facebook': 55, 'yandex': 120, 'vk': 115, 'google': 99, 'email': 42, 'ok': 98}
+
+# max_ = 0
+# for key, value in stats.items():
+#   if value > max_:
+#     max_ = value
+#     name = key
+# print(f'Лучшая площадка - {name}, здесь {max_} продаж.')
+
+
+# (Необязательное) Напишите код для преобразования произвольного списка вида ['2018-01-01', 'yandex', 'cpc', 100] (он может быть любой длины) в словарь {'2018-01-01': {'yandex': {'cpc': 100}}}
+
+# a = ['2018-01-01', 'yandex', 'cpc', 100]
+
+# b = a[-1]
+# for i in a[-2::-1]:
+#   b = {i: b}
+# print(b)
+
+
+# Надо подучить
+# string_ = input()
+# sub_string = input()
+
+# a = len(string_)
+# b = len(sub_string)
+# counter = 0
+
+# for i in range(0, a):
+#     if (string_[i: (i + b)] == sub_string):
+#         counter += 1
+# print(counter)
+
+
+# a = int(input())
+# lst = []
+# for i in range(0, a):
+#   c = input()
+#   lst.append(c)
+# print(sorted(lst)[-2])
+
+
+# Я работаю секретарем и мне постоянно приходят различные документы. Я должен быть очень внимателен чтобы не потерять ни один документ. Каталог документов хранится в следующем виде:
+
+
+# Задача №1
+# Необходимо реализовать пользовательские команды, которые будут выполнять следующие функции:
+
+# p – people – команда, которая спросит номер документа и выведет имя человека, которому он принадлежит;
+# s – shelf – команда, которая спросит номер документа и выведет номер полки, на которой он находится;
+# Правильно обработайте ситуации, когда пользователь будет вводить несуществующий документ.
+# l– list – команда, которая выведет список всех документов в формате passport "2207 876234" "Василий Гупкин";
+# a – add – команда, которая добавит новый документ в каталог и в перечень полок, спросив его номер, тип, имя владельца и номер полки, на котором он будет храниться. Корректно обработайте ситуацию, когда пользователь будет пытаться добавить документ на несуществующую полку.
+# Внимание: p, s, l, a - это пользовательские команды, а не названия функций. Функции должны иметь выразительное название, передающие её действие.
+
+documents = [
+        {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
+        {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
+        {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
+]
+# Перечень полок, на которых находятся документы хранится в следующем виде:
+
+directories = {
+        '1': ['2207 876234', '11-2'],
+        '2': ['10006'],
+        '3': []
+}
+
+
+
+
+print('Команда, которая выведет список всех документов в формате passport "2207 876234" "Василий Гупкин": [l]', 
+'\n\nКоманда, которая спросит номер документа и выведет имя человека, которому он принадлежит: [p]', 
+'\n\nКоманда, которая спросит номер документа и выведет номер полки, на которой он находится: [s]', 
+'\n\nКоманда, которая добавит новый документ в каталог и в перечень полок, спросив его номер, тип, имя владельца и номер полки, на котором он будет храниться: [a]', 
+'\n\nДля завершения сеанса нажмите: [q]')
+
+print()
+
+
+
+def people():
+  a = input('Введите номер документа, чтобы определить владельца: ')
+  for i in documents:
+    if a == i["number"]:
+      b = print(str(f'Владельцем этого документа является {i["name"]}.'))
+      return b
+  return
+
+
+
+def shelf():
+  a = input('Введите номер документа, чтобы узнать номер полки: ')
+  for i in directories.items():
+    # print(i[1])
+    if a in (i[1]):
+      b = print(f'Этот документ находится на полке № {i[0]}.')
+      return b
+  return
+
+
+
+def list_():
+  a = input('Введите номер документа, чтобы узнать полную информацию: ')
+  for i in documents:
+    if a == i["number"]:
+      b = print(str(f'Тип документа - {i["type"]}, номер - {i["number"]}, владелец - {i["name"]}.'))
+      return b
+  return
+
+
+
+def add():
+
+  input_type = input('Введите тип документа: ')
+  input_doc_number = input('Введите номер документа: ')
+  imput_owner = input('Введите имя и фамилию владельца документа: ')
+  input_shelf_number = input('Введите цифрой номер полки, на которую вы хотите поместить этот создаваемый документ: ')
+  new_for_shelf = input_doc_number
+  new_for_documents = {"type": input_type, "number": input_doc_number, "name": imput_owner}
+
+  for i in directories.keys():
+
+    if (input_shelf_number) in i:
+      directories[i].append(new_for_shelf)
+  s = print(f'\nВот обновленная информация по полкам. Вы добавили объект на полку №{input_shelf_number}: \n{directories}')
+
+  if new_for_documents not in documents:
+    documents.append(new_for_documents)
+  s_1 = print(f'\nВот обновленная информация по каталогу. Новый объект находится в конце списка: \n{documents}')
+
+  return s, s_1
+
+
+# buttons = {'p': people(), 's': shelf(), 'l': list_(), 'a': add()}
+
+def main():
+  while True:
+    user_input = input('\nВведите команду: ')
+    if user_input == 'p':
+      print(people())
+    elif user_input == 's':
+      print(shelf())
+    elif user_input == 'l':
+      print(list_())
+    elif user_input == 'a':
+      print(add())
+    elif user_input == 'q':
+      print('Ваш сеанс окончен!')
+      break
+
+main()

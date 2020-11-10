@@ -1,0 +1,44 @@
+class Track():
+    def __init__(self, name="Незаполненное название", duration=0):
+        self.name = name
+        self.duration = duration
+
+    def show(self):
+        return f"{self.name} - {self.duration}"
+    def track_name(self, name):
+        self.name = name
+    def track_duration(self, duration):
+        self.duration = duration
+
+class Album():
+
+    def __init__(self, name=" ", group=" "):
+        self.name = name
+        self.group = group
+        self.tracks = []
+
+    def get_tracks(self):
+        return [i.show() for i in self.tracks]
+    def get_duration(self):
+        return sum([i.duration for i in self.tracks])
+    def add_track(self, description_of_track):
+        self.tracks.append(description_of_track)
+
+albums = []
+album = Album("Первый альбом", "Первый исполнитель")
+album.add_track(Track("Частушка", 1))
+album.add_track(Track("Лирика", 4))
+album.add_track(Track("Романс", 3))
+albums.append(album)
+
+album2 = Album("Другой альбом", "Другой исполнитель")
+album2.add_track(Track("Баллада", 2))
+album2.add_track(Track("Менуэт", 5))
+album2.add_track(Track("Серенада", 5))
+albums.append(album2)
+
+for i in albums:
+    print(f"Альбом '{i.name}' группы '{i.group}'.")
+    for s in enumerate(i.get_tracks(), 1):
+        print(f"{s[0]}. {s[1]} мин.")
+    print(f"Общая длительность альбома: {i.get_duration()} минут.\n")

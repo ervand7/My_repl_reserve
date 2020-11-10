@@ -1,0 +1,192 @@
+import requests
+from urllib.parse import urlencode, urljoin
+from pprint import pprint
+import json
+import os  # для создание платформо-независимого путя к файлу
+from urllib.parse import urlparse
+from os.path import splitext, basename  # для того, чтобы получить расширение в ссылке
+from itertools import islice  # быстро разбить словарь на несколько словарей
+from tqdm import tqdm
+
+# ____________________ 1-st stage: we get token for VK ____________________________________________________
+# oauth_api_base_url = 'https://oauth.vk.com/authorize'
+# APP_ID = 7649081
+# redirect_uri = 'https://oauth.vk.com/blank.html'
+# scope = 'friends'
+#
+# oauth_params = {
+#     'redirect_uri': redirect_uri,
+#     'scope': scope,
+#     'response_type': 'token',
+#     'client_id': APP_ID
+# }
+#
+# print('?'.join([oauth_api_base_url, urlencode(oauth_params)]))
+
+# ____________________  2-nd stage: we already have the token  ____________________________________________________
+# __________________________________________________________________
+# Блок токенов
+VK_TOKEN = 'c14c6dd20e646cc5b7d39a0f64d5cca161025fc579b4b440e221f6ed2b78a5c00dd19609d3d6da2eba8ea'
+API_BASE_URL = 'https://api.vk.com/method/'
+V = '5.21'
+
+YANDEX_TOKEN = 'AgAAAAA6wCXpAADLW3o9UKJyK0n6qX3OfUgGEWI'
+
+# __________________________________________________________________
+# Блок ввода данных
+for_vk_input = input(
+    'Введите через пробел id пользователя и кол-во фотографий, нужных вам. '
+    'Затем нажмите Enter: ').split(' ')
+two_items = list(map(int, for_vk_input))  # use for example: 280572200 12
+
+folder_input = str(input('Введите название папки, которая будет располагаться на Яндекс.Диске, '
+                         'в которую затем будут загружены фотки из соцсетей: '))  # use for example: My_new_folder
+
+json_input = str(
+    input(
+        'Введите название json-файла (без ковычек и расширения), в который будем записывать фанные о фотографиях: '))  # use My_example
+
+
+# __________________________________________________________________
+# Работаем с ВК и в итоге получаем переменную new_dct_lst, в которой у нас будут все
+# названия, требуемые в задании, ссылки, размеры и тд. Потом, уже на основе этой переменной
+# будет создан json-файл и опять же, на основе итерации по этой переменной, будет загрузка в Яндека.Диск
+class VKUser:
+    def __init__(self, token=VK_TOKEN, version=V, id=two_items[0], count=two_items[1]):
+        self.token = token
+        self.version = version
+        self.count = count
+        self.owner_id = id
+
+    def get_photo_and_write_json(self):
+        status_common_lst = urljoin(API_BASE_URL, 'photos.get')
+        # print(status_common_lst)
+        response = requests.get(status_common_lst, params={
+            'access_token': self.token,
+            'v': self.version,
+            'owner_id': self.owner_id,
+            'album_id': 'profile',
+            'extended': 1,
+            'count': self.count
+        })
+
+        # __________________________________________________________________
+        # Получаем фотки
+        lst = []
+        res = (response.json()['response']['items'])
+        # pprint(res)  # Это мы выводим на экран
+        for i in res:
+            a = (i['likes']['count'], i['photo_2560'], i['date'])
+            lst.append(list(a))
+        # print(lst)
+
+        # __________________________________________________________________
+        # Получаем расширение и прилепляем его str_показателю кол-ва лайков
+        for i in lst:  # нагуглил. Для этого используем from os.path import splitext, basename
+            picture_page = i[1]
+            disassembled = urlparse(picture_page)
+            filename, file_ext = splitext(basename(disassembled.path))
+            i[0] = str(i[0]) + '_ext_' + file_ext
+        # pprint(lst)
+
+        # __________________________________________________________________
+        # Если название, оно же и str_показатель кол-ва лайков, уже есть в counter_lst,
+        # то мы к его названию еще прилепляем и дату загузки (такое условие у задания)
+        counter_lst = []
+        for i in lst:
+            if i[0] in [d[0] for d in counter_lst]:
+                i[0] = 'date_' + str(i[2]) + '|name_' + i[0]
+            counter_lst.append(i[0:2])
+        # pprint(counter_lst)
+
+        # __________________________________________________________________
+        # Теперь создаем словарь, в котором ключ - это название файла, а значение - ссылка
+        # этот словарь нужен, чтобы потом его разбить на словарь словарей и далее его уже
+        # подгонять под нужные нам параметры
+        single_dct_name_link = {}
+        for i in counter_lst:
+            single_dct_name_link[i[0]] = i[1]
+
+        # pprint(single_dct_name_link)
+
+        # __________________________________________________________________
+        # Теперь разбиваем словарь на несколько словарей
+        def chunks(data, SIZE=0):  # нагуглил. Для этого используем from itertools import islice
+            it = iter(data)
+            for i in range(0, len(data), SIZE):
+                yield {k: data[k] for k in islice(it, SIZE)}
+
+        new_dct_lst = []
+        for item in chunks({i: a for i, a in single_dct_name_link.items()}, 1):
+            new_dct_lst.append(item)
+        # pprint(new_dct_lst) # получили словарь словарей
+
+        # __________________________________________________________________
+        # Лепим из этого new_dct_lst, элементы которого сейчас название - ссылка, нужные нам параметры
+        for i in new_dct_lst:
+            for s in list(i):
+                i['file_name'] = s
+
+        for i in new_dct_lst:
+            i['file_size'] = 'z'
+
+        for i in new_dct_lst:
+            for s in list(i):
+                if '_ext_' in s:
+                    i['file_link'] = i[s]
+        # Все сделали. Избавляемся теперь от ненужного элемента название - ссылка
+        for i in new_dct_lst:
+            for s in list(i):
+                if '_ext_' in s:
+                    i.pop(s)
+        return new_dct_lst
+
+
+a = VKUser()
+
+
+# __________________________________________________________________
+# Создаем папку на Яндекс.Диске
+class YaUploader:
+    def __init__(self, folder_dscrpt=folder_input, token=YANDEX_TOKEN):
+        self.token = token
+        self.folder_dscrpt = folder_dscrpt
+
+        requests.put(
+            "https://cloud-api.yandex.net/v1/disk/resources",
+            params={"path": self.folder_dscrpt},
+            headers={"Authorization": f"OAuth {YANDEX_TOKEN}"}
+        )
+        print(f'The folder with name "{folder_dscrpt}" is successfully created on Yandex.Disk.')
+
+
+b = YaUploader()
+
+# __________________________________________________________________
+# Процесс записи в json-файл
+json_file = dict()
+json_file['info'] = a.get_photo_and_write_json()
+
+file_path = os.path.join(os.getcwd(), f'/Users/USER/Desktop/Done H:w API_vk/{json_input}.json')
+with open(file_path, 'w') as f:
+    json.dump(json_file, f, ensure_ascii=False, indent=2)
+
+
+class YaUpl:
+    def __init__(self, token=YANDEX_TOKEN):
+        self.token = token
+        for i in tqdm(a.get_photo_and_write_json()):
+            requests.post(
+                "https://cloud-api.yandex.net/v1/disk/resources/upload",
+                params={"url": i["file_link"],
+                        "path": f'{folder_input}/{i["file_name"]}'},
+                headers={"Authorization": f"OAuth {YANDEX_TOKEN}", }
+            )
+
+
+print(
+    'Данные в определенном формате, требуемом в задании, успешно записаны в json-файл, находящийся в этом же репозитории.')
+
+b = YaUpl()
+print(
+    f'Фотографии максимального размера успешно загружены на Яндекс.Диск в папку под названием "{folder_input}".')

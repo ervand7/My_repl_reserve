@@ -1,0 +1,60 @@
+capitals_dict = {'Russia': 'Moscow', 'Ukraine': 'Kiev',}
+# print(capitals_dict['Ukraine'])
+
+# добавление длемента
+capitals_dict['France'] = 'Paris'
+
+# .items() позволяет получить ключи и значения словаря
+# for country, capital in capitals_dict.items():
+#   print(country, '->', capital)
+
+# del Удаляет элемент из списка по ключу
+# del(capitals_dict['Russia'])
+# print(capitals_dict)
+
+# .keys() позволяет получить все ключи словаря
+
+# .values() Позволяет получить все значения словаря
+
+# .get(key) "безопасно" возвращает значение по ключу (при отсутствии ключаошибка не возникает)
+
+# setdefault(key,default) позволяет получить значение по ключу, автоматически добавляет элемент в словарь, если его нет
+
+# capitals_dict.values('Ara'.default)
+# print(capitals_dict)
+
+
+# ОПЕРАЦИИ НАД МНОЖЕСТВАМИ
+# Объединение (union)   Логическое "ИЛИ" (or)
+set_a = {1, 2, 3}
+set_b = {3, 4, 5}
+# set_c = set_a | set_b
+# print(set_c)
+
+# Пересечение (intersection)   Логическое "И" (and)
+# set_c = set_a & set_b
+# print(set_c)
+
+# Разность (difference)
+# set_c = set_a - set_b
+# print(set_c)
+
+# Симметричная разность (symmetric difference)
+set_c = set_a ^ set_b
+print(set_c)
+
+
+# ОПЕРАЦИИ НАД МНОЖЕСТВАМИ
+# .add(el) добавляет элемент в множество
+
+# .update(set) соединяет множество с другим множеством/списком
+
+# .discard(el) Удаляет элемент из множества по его значению
+
+# .union(set) объединяет множества (логическое "ИЛИ")
+
+# .intersection(set) - пересечение множеств (логическое "И")
+
+# .difference(set) возвращает элементы одного множества, которые не принадлежат другому множеству (разность множеств)
+
+# .symmetric_difference(set) возвращает элементы, которые встречаются в одном множестве, но не встречаются в обоих.

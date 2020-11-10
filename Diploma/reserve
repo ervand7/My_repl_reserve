@@ -1,0 +1,135 @@
+import requests
+from urllib.parse import urlencode, urljoin
+from pprint import pprint
+import json
+import os
+from urllib.parse import urlparse
+from os.path import splitext, basename # для того, чтобы получить расширение в ссылке
+from itertools import islice # быстро разбить словарь на несколько словарей
+
+# ____________________ 1-st stage: we get token ____________________________________________________
+#
+# oauth_api_base_url = 'https://oauth.vk.com/authorize'
+# APP_ID = 7649081
+# redirect_uri = 'https://oauth.vk.com/blank.html'
+# scope = 'friends'
+#
+# oauth_params = {
+#     'redirect_uri': redirect_uri,
+#     'scope': scope,
+#     'response_type': 'token',
+#     'client_id': APP_ID
+# }
+#
+# print('?'.join([oauth_api_base_url, urlencode(oauth_params)]))
+
+# ____________________  2-nd stage: we already have the token  ____________________________________________________
+TOKEN = '3bea1fa5f7a977e5efc60184a90821183e07357a177c3920eacfa4577233f09aabb5f817786222c3586a9'
+API_BASE_URL = 'https://api.vk.com/method/'
+V = '5.21'
+
+your_input = input(
+    'Введите через пробел id пользователя и кол-во фотографий, нужных вам. '
+    'Затем нажмите Enter: ').split(' ')
+two_items = list(map(int, your_input))  # use for example: 280572200 12
+
+class VKUser:
+    def __init__(self, token=TOKEN, version=V, id=two_items[0], count=two_items[1]):
+        self.token = token
+        self.version = version
+        self.count = count
+        self.owner_id = id
+
+    def get_photo_info(self):
+        status_common_lst = urljoin(API_BASE_URL, 'photos.get')
+        # print(status_common_lst)
+        response = requests.get(status_common_lst, params={
+            'access_token': self.token,
+            'v': self.version,
+            'owner_id': self.owner_id,
+            'album_id': 'profile',
+            'extended': 1,
+            'count': self.count
+        })
+
+# __________________________________________________________________
+        # Получаем фотки
+        lst = []
+        res = (response.json()['response']['items'])
+        for i in res:
+            a = (i['likes']['count'], i['photo_2560'], i['date'])
+            lst.append(list(a))
+        # pprint(lst)
+# __________________________________________________________________
+        # Получаем расширение и прилепляем его str_показателю кол-ва лайков
+        for i in lst: # нагуглил. Для этого используем from os.path import splitext, basename
+            picture_page = i[1]
+            disassembled = urlparse(picture_page)
+            filename, file_ext = splitext(basename(disassembled.path))
+            i[0] = str(i[0]) + '_ext_' + file_ext
+        # pprint(lst)
+
+# __________________________________________________________________
+        # Если название, оно же и str_показатель кол-ва лайков, уже есть в counter_lst,
+        # то мы к его названию еще прилепляем и дату загузки (такое условие у задания)
+        counter_lst = []
+        for i in lst:
+            if i[0] in [d[0] for d in counter_lst]:
+                i[0] = 'date_' + str(i[2]) + '|name_' + i[0]
+            counter_lst.append(i[0:2])
+        # pprint(counter_lst)
+
+# __________________________________________________________________
+        # Теперь создаем словарь, в котором ключ - это название файла, а значение - ссылка
+        # этот словарь нужен, чтобы потом его разбить на словарь словарей и далее его уже
+        # подгонять под нужные нам параметры
+        single_dct_name_link = {}
+        for i in counter_lst:
+            single_dct_name_link[i[0]] = i[1]
+        # pprint(single_dct_name_link)
+
+# __________________________________________________________________
+        # Теперь разбиваем словарь на несколько словарей
+        def chunks(data, SIZE=0): # нагуглил. Для этого используем from itertools import islice
+            it = iter(data)
+            for i in range(0, len(data), SIZE):
+                yield {k: data[k] for k in islice(it, SIZE)}
+        new_dct_lst = []
+        for item in chunks({i: a for i, a in single_dct_name_link.items()}, 1):
+            new_dct_lst.append(item)
+        # pprint(new_dct_lst) # получили словарь словарей
+
+#__________________________________________________________________
+        # Задаем ключи и значения и модифицируем new_dct_lst
+        for i in new_dct_lst:
+            for s in list(i):
+                i['file_name'] = s
+
+        for i in new_dct_lst:
+            i['file_size'] = 'z'
+
+        for i in new_dct_lst:
+            for s in list(i):
+                if '_ext_' in s:
+                    i['file_link'] = i[s]
+        # убираем уже теперь ненужный элемент имя - ссылка
+        for i in new_dct_lst:
+            for s in list(i):
+                if '_ext_' in s:
+                    i.pop(s)
+        # pprint(new_dct_lst)
+
+# __________________________________________________________________
+        # Процесс преобразования переменной new_dct_lst для записи в json - формат. И сама запись
+        json_file = dict()
+        json_file['info'] = new_dct_lst
+
+        file_path = os.path.join(os.getcwd(), '/Users/USER/Desktop/Done H:w API_vk/My_example.json')
+        with open(file_path, 'w') as f:
+            json.dump(json_file, f, ensure_ascii=False, indent=2)
+
+
+# __________________________________________________________________
+# Объявления экз. класса и вызов функции
+a = VKUser()
+a.get_photo_info()

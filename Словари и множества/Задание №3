@@ -1,0 +1,99 @@
+# Задание 3. Дан список поисковых запросов. Получить распределение количества слов в них. Т. е. поисковых запросов из одного - слова 5%, из двух - 7%, из трех - 3% и т.д.
+
+# первым делом узнаем длинну списка, нам нужно понять, сколько вообще строк есть, чтобы потом это число взять за 100%.
+# создаем пустой желаемый список, в который потом добавим измененный под наши цели исходный список
+# запускаем цикл. Для работы берем общепринятую переменную i и говорим, что для нее в исходном списке раздробленный список будет равен длине раздробленной этой i. Довавляем полученный результат в жалаемый список. Все, цикл закончился. Далее создаем 2 переменные для первого и второго результата и используем простую математику
+
+queries = [
+    'смотреть сериалы онлайн',
+    'новости спорта',
+    'афиша кино',
+    'курс доллара',
+    'сериалы этим летом',
+    'курс по питону',
+    'сериалы про спорт',
+]
+
+# Мое собственное продвинутое решение
+
+cntr = []
+for i in queries:
+  a = (len(i.split()))
+  cntr.append(a)
+# print(cntr)
+
+from collections import Counter
+o = (dict(Counter(cntr)))
+# print(o)
+
+for key, value in o.items():
+  print(f'Количество запростов из {key} слов = {value / len(cntr) * 100}%')
+
+
+
+# Прежние решения
+list_length = len(queries)
+desired_list = []
+for i in queries:
+  split_list = len(i.split())
+  desired_list.append(split_list)
+first_result = desired_list.count(2) / list_length * 100
+second_result = desired_list.count(3) / list_length * 100
+print(f'Процент поисковых запросов из 2 слов равен {round(first_result)}%\nПроцент поисковых запросов из 2 слов равен {round(second_result)}%')
+
+
+
+
+
+
+# Ниже представлен более "деревянный" вариан решения. Так сказать полуавтоматический
+
+# desired_list = {}
+# for a in queries:
+#   b = a.split()
+#   # print(len(b))
+#   c = (len(b))
+#   # print(c, end = ',')
+
+# desired_list[3] = 4
+# desired_list[2] = 3
+# print(desired_list)
+
+# percent_of_key_3 = ((list(desired_list.values())[0]) / 7 * 100) 
+# percent_of_key_2 = ((list(desired_list.values())[1]) / 7 * 100) 
+# print(percent_of_key_3, '%')
+# print(percent_of_key_2, '%')
+
+
+
+# А вот вариант решения проверяющего учителя
+]
+total_request_quantity = len(queries)  # 
+  общее кол-во запросов
+dct = {}  # Временный словарь куда пишем 
+  статистику, своеобразная база данных
+for i in queries:
+    quantity = len(i.split())
+    if quantity in dct:
+            
+        dct[quantity] += 1  # делаем 
+          quantity ключом в словаре dct  
+          и при каждой его итерации в 
+          значении прибавляем единицу
+    else:
+        dct[quantity] = 1  # в противном 
+          случае, если вхождение было 
+          одно, пишем 1
+        
+print(f'всего запросов - 
+  {total_request_quantity}')
+print(f'результирующий словарь - {dct}')
+# Для каждого элемента словаря, т.е. для 
+  каждого кол-ва слом расчитываем процент 
+  и выводим на печать
+# Для этого создаем еще один цикл
+for key in dct:
+    percent_of_queries = round(dct[key] / 
+      total_request_quantity * 100)
+    print(f'Кол-во слов в запросе {key}  
+      - {percent_of_queries} %')

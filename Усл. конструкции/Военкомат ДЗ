@@ -1,0 +1,18 @@
+heigth = 180
+age = 35
+weight = 52
+education_now = 0 # "0" - не учится; "1" - учится; 2 - аспирант
+children = 5
+
+if (age >= 18) and (age <=27) and (education_now <= 1) and (children <1):
+
+  if (heigth <= 170) and (weight <= 60):
+    print('В танкисты')
+  elif (heigth >= 170) and (heigth <= 185) and (weight >= 60) and (weight <= 80):
+    print('На флот')
+  elif (heigth >= 185) and (heigth <= 210) and (weight >= 80) and (weight <= 120):
+    print('В десантники')
+  else:
+    print('В другие войска')
+else:
+  print('Не подлежит призыву')

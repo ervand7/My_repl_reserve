@@ -1,0 +1,219 @@
+class Goose:
+# задаем аттрибуты класса
+    weight = 0
+    weight_special_task_2 = 0
+    egg = 0
+    voice = ''
+    eggs_counter = 0
+
+    name = ''
+# пишем все методы таким образом, чтобы при вызове не было обязательных аргументов. Чтобы все было уже по умолчанию
+    def collect_eggs(self, egg = 1):
+        self.eggs_counter += egg
+        print(self.eggs_counter)
+
+    def feed(self, food=1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_goose='Внимание! Я гусь, я говорю на гусином языке!'):
+        self.voice = voice_of_goose
+        print(self.voice)
+# прописываем экземпляры
+gray_goose = Goose()
+white_goose = Goose()
+
+# Проверяем работоспособность методов
+# gray_goose.collect_eggs()
+
+gray_goose.name = 'Gray_goose'
+value_1 = gray_goose.name
+gray_goose.weight_special_task_2 = 22
+attr_1 = gray_goose.weight_special_task_2
+white_goose.name = 'White_goose'
+value_2 = white_goose.name
+white_goose.weight_special_task_2 = 33
+attr_2 = white_goose.weight_special_task_2
+
+list_attr = [attr_1, attr_2]
+list_values = [value_1, value_2]
+t = zip(list_values, list_attr)
+tt = dict(t)
+
+max = 0
+for name, value in tt.items():
+    if value > max:
+        max = value
+        nickname = name
+print(f'Среди {Goose} самый тяжелый у нас - {nickname}.')
+
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Cow:
+    milk_volume = 0
+    weight = 0
+    weight_special_task_2 = 0
+    voice = ''
+    milk_counter = 0
+
+    name = ''
+
+    def collect_milk(self, milk_volume = 1):
+        self.milk_counter += milk_volume
+        print(self.milk_counter)
+
+    def feed(self, food = 1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_cow='Внимание! Я корова, и вот я произношу мууу!'):
+        self.voice = voice_of_cow
+        print(self.voice)
+
+manka = Cow()
+
+# проверка кода
+# manka.collect_milk()
+
+manka.name = 'Manka'
+manka.weight_special_task_2 = 15
+print(f'Ввиду отсутствия конкурентов, {manka.name} - тяжелейшее животное в {Cow}')
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Sheep:
+    weight = 0
+    weight_special_task_2 = 0
+    haircut_level = 0
+    voice = ''
+
+    name = ''
+
+    def cut(self, haircut = 1):
+        self.haircut_level += haircut
+        print(self.haircut_level)
+
+    def feed(self, food = 1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_sheep='Внимание! Я овен, и вот я произношу мееее!'):
+        self.voice = voice_of_sheep
+        print(self.voice)
+
+curly = Sheep()
+lamb = Sheep()
+
+# проверка кода
+# lamb.distinguish_by_voices()
+
+curly.name = 'Curly'
+curly.weight_special_task_2 = 44
+lamb.name = 'Lamb'
+lamb.weight_special_task_2 = 49
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Chicken:
+    weight = 0
+    weight_special_task_2 = 0
+    egg = 0
+    voice = ''
+    eggs_counter = 0
+
+    name = ''
+
+    def collect_eggs(self, egg = 1):
+        self.eggs_counter += egg
+        print(self.eggs_counter)
+
+    def feed(self, food=1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_chicken='Внимание! Я курица, и вот я произношу кукареку!'):
+        self.voice = voice_of_chicken
+        print(self.voice)
+
+ko_ko = Chicken()
+kuka_re_ku = Chicken()
+
+# проверка кода
+# kuka_re_ku.collect_eggs()
+
+ko_ko.name = 'Ko_ko'
+ko_ko.weight_special_task_2 = 50
+kuka_re_ku.name = 'Kuka_re_ku'
+kuka_re_ku.weight_special_task_2 = 51
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Goats:
+    milk_volume = 0
+    weight = 0
+    weight_special_task_2 = 0
+    voice = ''
+    milk_counter = 0
+
+    name = ''
+
+    def collect_milk(self, milk_volume = 1):
+        self.milk_counter += milk_volume
+        print(self.milk_counter)
+
+    def feed(self, food = 1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_goat='Внимание! Я козел, и вот я говорю на козьем языке!'):
+        self.voice = voice_of_goat
+        print(self.voice)
+
+horns = Goats()
+hooves = Goats()
+
+# проверка кода
+# hooves.distinguish_by_voices()
+
+horns.name = 'Horns'
+horns.weight_special_task_2 = 60
+hooves.name = 'Hooves'
+hooves.weight_special_task_2 = 64
+
+
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Duck:
+    weight = 0
+    weight_special_task_2 = 0
+    egg = 0
+    voice = ''
+    eggs_counter = 0
+
+    name = ''
+
+    def collect_eggs(self, egg = 1):
+        self.eggs_counter += egg
+        print(self.eggs_counter)
+
+    def feed(self, food=1):
+        self.weight += food
+        print(self.weight)
+
+    def distinguish_by_voices(self, voice_of_duck='Внимание! Я утка, и вот я произношу говорю на утином языке!'):
+        self.voice = voice_of_duck
+        print(self.voice)
+
+kryakva = Duck()
+
+# проверка кода
+# kryakva.collect_eggs()
+
+kryakva.name = 'Kryakva'
+kryakva.weight_special_task_2 = 90
+print(f'Ввиду отсутствия конкурентов, {kryakva.name} - тяжелейшее животное в {Duck}')
+
+
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

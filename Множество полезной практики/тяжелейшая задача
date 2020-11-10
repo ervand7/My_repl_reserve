@@ -1,0 +1,45 @@
+
+lst = []
+for i in range(int(input())):
+
+    name = input()
+    score = (input())
+    lst += name, float(score)
+
+counter = []
+for i in lst[::2]:
+  counter.append(i)
+counter_2 = []
+for i in lst[1::2]:
+  counter_2.append(i)
+vvv = list(zip(counter_2, counter))
+aa = sorted(vvv)
+
+
+if (aa[0][0]) == (aa[1][0]) == (aa[2][0]):
+  print(max(aa)[1])
+
+elif (aa[1][0]) == (aa[2][0]):
+  print(aa[1][1])
+  print(aa[2][1])
+
+elif ((aa[0][0]) == (aa[1][0]) < (aa[2][0]) == (aa[3][0]) < (aa[4][0])):
+    print(aa[2][1])
+    print(aa[3][1])
+
+elif  (aa[0][0] < (aa[1][0])):
+    print(aa[1][1])
+
+elif  (aa[0][0] < (aa[1][0]) < (aa[2][0])):
+    print(aa[1][1])
+
+elif (aa[0][0]) == (aa[1][0]):
+  print(aa[0][1])
+  print(aa[1][1])
+
+elif  ((aa[-4][0]) == (aa[-3][0]) == (aa[-2][0]) == (aa[-1][0])):
+    print(aa[-1][1])
+
+elif  (aa[3][0] == aa[2][0] > (aa[1][0])):
+    print(aa[2][1])
+    print(aa[3][1])

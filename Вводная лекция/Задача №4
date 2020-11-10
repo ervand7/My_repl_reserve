@@ -1,0 +1,14 @@
+salary = int(input('Введите заработанную плату в месяц: '))
+mortgage = int(input('Введите, сколько процентов уходит на ипотеку: '))
+life = int(input('Введите сколько процентов уходит на жизнь: '))
+prize = int(input('Введите количество премий за год: '))
+
+mortgage1 = int(salary / salary * mortgage)
+life1 = int(salary / salary * life)
+prize1 = int(prize * (salary * 0.5))
+e = int(salary / 100 * mortgage1 * 12)
+remainder = int(100 - (mortgage1 + life1))
+f = int(salary / 100 * remainder * 12 + prize1)
+
+print('Вывод: на ипотеку было потрачено:', e)
+print('Вывод: было накоплено:', f)

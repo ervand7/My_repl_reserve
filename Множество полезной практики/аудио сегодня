@@ -1,0 +1,63 @@
+class Track:
+    track_name = ''
+    duration = 0
+
+
+    def show(self, name_of_track, duration_of_track=0): # оригинал
+        self.track_name = name_of_track
+        self.duration = duration_of_track
+        print(f'{self.track_name} - {self.duration}')
+
+
+# здесь прописываем названия треков. Они идут как экземпляры
+qw = Track()
+er = Track()
+ty = Track()
+
+# |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+class Album:
+    album_name = ''
+    group_name = '' # непонятно, зачем в задании прописали этот пункт
+    tracks_list = []
+    # full_list = [
+    #     qw.show('asdasd', 12),
+    #     er.show('qweqweqwe', 122),
+    #     ty.show('zxczx', 332)
+    #     ]
+
+    full_list = [
+        ('asdasd', 12),
+        ('qweqweqwe', 122),
+        ('zxczx', 332)
+        ]
+
+    qqqqq = []
+# на всякий случай сюда добавляю атрибуты предыдущего класса. Хотя и без них все работает
+#     track_name = ''
+#     duration = 0
+
+    def add_track(self, name_of_track, duration_of_track=0):
+        self.track_name = name_of_track
+        self.duration = duration_of_track
+        p = Track() # тут все переводим в переменные, чтобы можно было добавлять новые треки в альбом (пользоваться .append)
+        p.show(self.track_name, self.duration) # применяем метод из предыдущего класса
+        self.full_list.append(p) # и добавляем с наш новый трек в аттрибут full_list (обязательно с указанием впереди self)
+
+
+    def get_tracks(self, lst=full_list):  # просто для приличия создаем аргумент lst и приравниваем его значение к full_list
+        self.tracks_list = lst
+
+
+
+# проверяем код: добавляем 2 трека
+asdasdasd = Album()
+asdasdasd.add_track('sdfsdfsdf', 32321321)
+asdasdasd.get_tracks()
+
+
+аааа = Album()
+аааа.add_track('ggggg', 555)
+
+
+

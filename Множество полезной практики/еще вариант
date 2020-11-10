@@ -1,0 +1,32 @@
+import itertools
+
+x = int(input())
+y = int(input())
+z = int(input())
+n = int(input())
+
+# x = 0
+# y = 1
+
+t = (list(itertools.product([0, 1, x, y, z], repeat=3)))
+# print(t)
+b = (map(sum, t))
+# print(list(b))
+# print(t[6][1] + t[7][2])
+counter = []
+for i in t:
+  if (i[0] + i[1] + i[2]) != n:
+    counter.append(i)
+# print(counter)
+counter_2 = []
+for s in counter:
+  if not s in counter_2:
+    counter_2.append(s)
+# print(counter_2)
+
+# }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+counter_3 = []
+for o in counter_2:
+  counter_3.append(list(o))
+print(counter_3)
+

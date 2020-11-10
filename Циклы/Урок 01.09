@@ -1,0 +1,252 @@
+# # ПРОСТЫЕ ТИПЫ ДАННЫХ
+# my_integer = 10
+# print(type(my_integer))
+
+
+# my_float = 5.5
+# print(type(my_float))
+
+
+my_string = 'Hello World!'
+# # my_string_2 = "Hello World"
+# print(my_string, type(my_string))
+
+
+# my_bool = True
+# my_bool = False
+# print(type(my_bool))
+
+# print(4==2)
+# x = 5
+# y = 1
+# print(type(x > 1))
+
+# ПРЕОБРАЗОВАНИЕ ТИПОВ
+salary = 1000
+# print('Ваша годовая зарплата составляет ' + salary + ' условных единиц')
+# print('Ваша годовая зарплата составляет ' + str(salary) + ' условных единиц')
+
+
+# # НЕЯВНОЕ ПРЕОБРАЗОВАНИЕ ТИПОВ
+# print(20 / 5.1)
+# print(1 + True)
+
+
+
+# # ОПЕРАЦИИ СО СТРОКАМИ
+# print(my_string.upper())
+# print(my_string.lower())
+# print(my_string.capitalize())
+# print(my_string.title())
+# print(my_string.replace('Hello', 'Goodbye'))
+# print(my_string)
+# print(len(my_string))
+
+# f-строки
+# name = 'oleg'
+# lang = 'python'
+# f_string = f'Hello, my name is {name.title()}, i know {lang} a bit'
+# print(f_string)
+# # ИНДЕКСАЦИЯ И СРЕЗЫ
+# my_string = 'Hello World'
+# print(my_string[2])
+# print(my_string[-4])
+# print(my_string[0:5])
+# print(my_string[0:8:2])
+# print(my_string[6:])
+# print(my_string[:5])
+# print(my_string[::-1])
+
+# # СПИСКИ
+month_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+income_list = [13000, 14000, 14300, 15000, 13800, 13000, 14900, 15200, 15300]
+income_by_months = [['Jan', 13000], ['Feb', 14000], ['Mar', 14300], ['Apr', 15000], ['May', 13800], ['Jun', 13000], ['Jul', 14900], ['Aug', 15200], ['Sep', 15300]]
+
+# print(type(month_list))
+# print(type(income_list))
+# print(type(income_by_months))
+
+# # ИНДЕКСАЦИЯ ЭЛЕМЕНТОВ В СПИСКЕ
+# print(month_list[0])
+# print(month_list[-1])
+# print(income_by_months[-4][1])
+
+# # СРЕЗЫ
+# print(income_by_months[0:2])
+# print(income_by_months[-8:-6])
+
+# print(income_by_months[2:])
+# print('--------------')
+# print(income_by_months[:3][0][0])
+
+# # ИЗМЕНЕНИЕ СПИСКОВ
+# income_by_months[0][1] = 13100
+# print(income_by_months)
+
+# income_by_months[0:2] = [['Jan', 13200], ['Feb', 13900]]
+# print(income_by_months)
+
+# income_by_months_2 = [['Nov', 15400], ['Dec', 17000]]
+# income_by_month = income_by_months + income_by_months_2
+# print(income_by_month)
+
+# my_string = 'oleg'
+# my_string[0] = 'O'
+
+# # УДАЛЕНИЕ ИЗ СПИСКА ПО ИНДЕКСУ И ПО ЭЛЕМЕНТУ
+# del(income_by_months[1])
+# print(income_by_months)
+
+# month_list.remove('Jan')
+# print(month_list)
+
+# # ДОБАВЛЕНИЕ ЭЛЕМЕНТА В СПИСОК
+income_by_months.append(['Dec', 17000])
+# print(income_by_months)
+# income_list.insert(2, 1111111)
+# print(income_list)
+
+# # СЧИТАЕМ КОЛИЧЕСТВО ВХОЖДЕНИЙ ЭЛЕМЕНТА В СПИСОК
+# print(income_list)
+# print(income_list.count(13000))
+
+# # УЗНАЕМ ИНДЕКС ЭЛЕМЕНТА В СПИСКЕ
+# print(income_list.index(13000))
+
+# # РАЗВОРАЧИВАЕМ СПИСОК
+# print(month_list)
+# month_list.reverse()
+# print(month_list)
+
+# print(len(income_list))
+
+# # sort и sorted. Методы изменяемых типов
+# print(income_list)
+# # res = sorted(income_list)
+# # print(res)
+# res = income_list.sort()
+# print(res)
+
+# # СПИКИ И СТРОКИ 
+queries_string = "смотреть сериалы онлайн,новости спорта,афиша кино,курс доллара,сериалы этим летом,курс по питону,сериалы про спорт"
+
+# # преобразование строки в список (например, из CSV-файла)
+# queries_string.split()
+# print(queries_string.split(','))
+# # Преобразование списка в строку
+
+# print('|'.join(['Столбец 1', 'Столбец 2', 'Столбец 3']))
+
+
+# # КОРТЕЖИ
+# salary_tuple = (1000, 1200, 1300, 900, 800)
+
+# print(salary_tuple[0])
+# salary_tuple[0] = 500
+
+# # ZIP
+salaries = [[1000, 12312], 1200, 1300, 900, 800, 1000]
+names = ['Robert', 'Jane', 'Liza', 'Richard', 'John']
+salaries_by_names = zip(names, salaries)
+# print(salaries_by_names)
+# print(list(salaries_by_names))
+
+# # РАСПАКОВКА ОБЪЕКТОв
+# company_tuple = ('Orange', 100000000, 20000)
+# company_name, capitalization, personal = company_tuple
+# print(company_name)
+# print(capitalization)
+# print(personal)
+
+
+
+# # Провека вхождения 
+# print('Hello' in 'Hello World')
+# month_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+# print('Jan' in month_list)
+
+
+
+# # ЦИКЛ while
+# x = 5
+# while x != 0:
+#  x -= 1
+#  x = x - 1
+#  x += 5
+#  x = x +5
+#  x *= 7
+#  x /= 6
+#  print(x)
+#  x -= 1
+
+
+# x = 7
+# while x != 0:
+#   if x % 2 == 0:
+#     print(x, '- четное число')
+#   else:
+#     print(x, '- нечетное число')
+#   x = x - 1
+
+
+# # НАПИШЕМ ПРОГРАММУ, КОТОРАЯ ПОСЛЕДОВАТЕЛЬНО ЗАПРАШИВАЕТ У ПОЛЬЗОВАТЕЛЯ ЧИСЛА (ПО ОДНОМУ ЗА РАЗ), ПОСЛЕ ПЕРВОГО НУЛЯ ВЫВОДИТ СУММУ ВСЕХ РАНЕЕ ВВЕДЕННЫХ ЧИСЕЛ
+# print(sum([1, 2, 3, 4]))
+# sum_ =0
+# a = ''
+# while a != 0:
+#   a = int(input('Введите число'))
+#   sum_ += a
+# print(sum_)
+
+
+
+
+# # ЦИКЛ for
+# # итерация по строкам
+# company_name = 'Orange'
+# for letter in company_name:
+#   print(letter)
+#   letter = letter.capitalize()
+#   print(letter, end='')
+
+# # итерация по спискам
+companies_capitalization = [
+ ['Orange', 1.3],
+ ['Maxisoft', 1.5],
+ ['Headbook', 0.8],
+ ['Nicola', 2.2]
+]
+# for company in companies_capitalization:
+#   # print(company)
+#   print(f'{company[0]} capitalization is {company[1]}')
+
+# # ПРАКТИКА. Выведем фамилии построчно с указанием профессии
+
+professions = ['IT', 'Физика', 'Математика']
+persons = [['Гейтс', 'Джобс', 'Возняк'], ['Эйнштейн', 'Фейнман'], ['Эвклид', 'Ньютон']]
+
+# for pro, names in zip(professions, persons):
+#   print(f'{pro}:')
+#   for name in names:
+#     print(name)
+#   print()
+
+#  # break, continue, pass
+phrase = '640Кб должно хватить для любых задач. Билл Гейтс (по легенде)'
+print(phrase)
+# for letter in phrase:
+#     if letter == ' ':
+#         break
+#     print(letter, end='')
+
+
+# for letter in phrase:
+#     if letter == ' ':
+#         continue
+#     print(letter, end='')
+
+
+# for letter in phrase:
+#     if letter == ' ':
+#         pass
+#     print(letter, end='')
